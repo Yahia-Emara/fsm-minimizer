@@ -1,38 +1,46 @@
-# Finite State Machine (FSM) Minimizer
+# FSM Minimizer
 
-A framework-free C++ Terminal User Interface (TUI) application designed to visualize and execute step-by-step state machine reduction using the **Implication Table method**. Built using native Win32 console APIs (`windows.h`).
+A framework-free, highly performant C++ Terminal User Interface (TUI) application designed to automate Finite State Machine (FSM) state reduction using the Implication Table method.
 
----
-
-## ⚙️ Prerequisites
-
-* **OS:** Windows
-* **Build Tools:** MinGW (G++) & `make` utility
+![FSM Minimizer Demo](assets/demo.gif)
 
 ---
 
-## 🚀 Getting Started
+## Key Features
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Yahia-Emara/FSM-minimizer.git](https://github.com/Yahia-Emara/FSM-minimizer.git)
-   cd FSM-minimizer
-   ```
-
-2. **Build and Run:**
-   Execute the following command in your terminal:
-   ```bash
-   mingw32-make run
-   ```
-   *(Note: Initial compilation may take a few seconds).*
+* **Framework-Free TUI:** Built directly using native Win32 Console APIs (`windows.h`) for lightweight, low-overhead performance.
+* **Dual Architecture Support:** Fully supports state table reduction for both **Mealy** and **Moore** sequential machines.
+* **Algorithmic Equivalence Testing:** Automatically identifies equivalent state pairs, constructs implication tables, and generates the fully minimized state transition table.
+* **Fully Portable Binary:** Zero runtime dependencies—compiled with static GCC linking flags to run standalone on any clean Windows environment without requiring MinGW or toolchain installations.
 
 ---
 
-## 🎮 Navigation & Controls
+## Quick Start (Pre-Compiled Binary)
 
-| Action | Control |
-| :--- | :--- |
-| **Navigate Interface** | Arrow Keys (`Up`, `Down`, `Left`, `Right`) |
-| **Confirm / Select** | `Enter` |
-| **Adjust Font/Grid Size** | Mouse Wheel (Zoom In / Out) |
-| **Exit Application** | `Ctrl` + `C` |
+1. Navigate to the **[Releases](../../releases)** section of this repository.
+2. Download `main.exe` from the latest release assets.
+3. Double-click `main.exe` (or execute `.\main.exe` from PowerShell / Command Prompt) to launch the TUI directly.
+
+---
+
+## Building from Source
+
+### Prerequisites
+
+* **GCC/G++** (MinGW-w64 recommended)
+* **GNU Make** (`mingw32-make`)
+
+### Build Instructions
+
+Clone the repository and build using the provided `Makefile`:
+
+```powershell
+# Clone repository
+git clone git@github.com:YOUR_USERNAME/FSM-minimizer.git
+cd FSM-minimizer
+
+# Compile portable release binary
+mingw32-make
+
+# Run the application
+mingw32-make run
