@@ -1,5 +1,6 @@
 COMPILER = g++
-FLAGS    = -Wall -std=c++17 -g -MMD -MP -finput-charset=UTF-8 -fexec-charset=UTF-8
+FLAGS    = -Wall -std=c++17 -O2 -MMD -MP -finput-charset=UTF-8 -fexec-charset=UTF-8
+LDFLAGS  = -static -static-libgcc -static-libstdc++ -lwinmm
 TARGET   = main.exe
 SRCS     = $(wildcard src/*.cpp)
 OBJS     = $(SRCS:src/%.cpp=build/%.o)
@@ -8,7 +9,7 @@ DEPS     = $(OBJS:.o=.d)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(COMPILER) $(FLAGS) -o $@ $^ -lwinmm
+	$(COMPILER) $(FLAGS) -o $@ $^ $(LDFLAGS)
 
 build/%.o: src/%.cpp | build
 	$(COMPILER) -Iinclude $(FLAGS) -c -o $@ $<
